@@ -2,6 +2,8 @@
 
 Aplicativo estático/PWA para montar e compartilhar encomendas de salgados.
 
+Acesse: <https://mestreudk.github.io/SalgadoApp/>
+
 ## Funcionalidades
 
 - tema escuro como padrão;
