@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salgados-cache-v2';
+const CACHE_NAME = 'salgados-cache-v3';
 
 const APP_SHELL = [
   './',
@@ -35,14 +35,13 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const request = event.request;
 
-  // Não interfere com POST/PUT/etc. nem com recursos de outros domínios.
   if (request.method !== 'GET') return;
 
   const requestUrl = new URL(request.url);
   if (requestUrl.origin !== self.location.origin) return;
 
-  // Para abrir/recarregar a página: tenta a versão atual da rede primeiro.
-  // Se estiver offline, usa a cópia salva.
+  // Navegação: rede primeiro para receber atualizações do GitHub Pages.
+  // Se estiver offline, usa a versão salva.
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
@@ -61,7 +60,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Para os demais arquivos do próprio app: cache primeiro, rede como fallback.
+  // Arquivos locais do app: cache primeiro, rede como fallback.
   event.respondWith(
     caches.match(request).then(cached => cached || fetch(request))
   );

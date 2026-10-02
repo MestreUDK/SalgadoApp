@@ -1,29 +1,24 @@
 # SalgadoApp — GitHub Pages
 
-App estático para calcular encomendas de salgados.
+App estático/PWA para calcular encomendas de salgados.
 
-## Compatibilidade
+## Funcionalidades
 
-O projeto pode ser publicado diretamente no GitHub Pages porque usa somente HTML, CSS e JavaScript no navegador.
-
-Esta versão mantém as funções existentes:
 - adicionar salgados ao pedido;
-- calcular subtotal proporcional ao preço do cento;
+- calcular o subtotal proporcional ao preço do cento;
 - remover itens;
-- calcular o total;
-- copiar o resumo para o WhatsApp/área de transferência;
-- funcionar como PWA;
-- funcionar offline após o primeiro carregamento.
+- calcular o total geral;
+- copiar o resumo do pedido para a área de transferência;
+- abrir o WhatsApp com a mensagem pronta e escolher o contato;
+- tema escuro como padrão;
+- alternar entre tema escuro e claro;
+- salvar a preferência de tema no aparelho;
+- instalação como PWA;
+- funcionamento offline após o primeiro carregamento.
 
-## Importante sobre o ícone
+## Arquivos
 
-Este pacote é um **PATCH** porque o arquivo original recebido para análise era um relatório em texto e não continha os bytes do `icon.png`.
-
-Ao aplicar os arquivos deste pacote no seu repositório, **mantenha o `icon.png` original na raiz**.
-
-## Publicar no GitHub Pages
-
-Estrutura esperada na raiz do repositório:
+Mantenha na raiz do repositório:
 
 ```text
 /
@@ -33,23 +28,19 @@ Estrutura esperada na raiz do repositório:
 ├── sw.js
 ├── icon.png
 ├── README.md
-└── LICENSE   (se já existir)
+└── LICENSE
 ```
 
-No GitHub:
+## Atualização
 
-1. Abra **Settings** do repositório.
-2. Acesse **Pages**.
-3. Em **Build and deployment**, escolha **Deploy from a branch**.
-4. Selecione a branch principal (normalmente `main`) e a pasta `/ (root)`.
-5. Salve.
-6. Quando disponível, mantenha HTTPS habilitado.
+Esta versão utiliza o cache `salgados-cache-v3`.
 
-Os caminhos desta versão são relativos (`./`), portanto funcionam tanto em:
+O arquivo `icon.png` não está incluído neste patch. Mantenha o ícone que já existe no seu repositório.
+
+## GitHub Pages
+
+Os caminhos continuam relativos (`./`), portanto o projeto permanece compatível com publicação em:
+
 - `https://usuario.github.io/`
 - `https://usuario.github.io/nome-do-repositorio/`
 - domínio próprio configurado no GitHub Pages.
-
-## Atualizações do PWA
-
-O cache foi alterado para `salgados-cache-v2`. Ao publicar novas alterações no futuro, é recomendável alterar novamente o nome do cache (`v3`, `v4`, etc.) quando houver mudanças importantes nos arquivos offline.
