@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salgados-cache-v3';
+const CACHE_NAME = 'salgados-cache-v4';
 
 const APP_SHELL = [
   './',
@@ -7,7 +7,6 @@ const APP_SHELL = [
   './icon.png'
 ];
 
-// Instala e guarda os arquivos essenciais para uso offline.
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -16,7 +15,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Remove versões antigas do cache e assume o controle imediatamente.
 self.addEventListener('activate', event => {
   event.waitUntil(
     Promise.all([
@@ -40,8 +38,6 @@ self.addEventListener('fetch', event => {
   const requestUrl = new URL(request.url);
   if (requestUrl.origin !== self.location.origin) return;
 
-  // Navegação: rede primeiro para receber atualizações do GitHub Pages.
-  // Se estiver offline, usa a versão salva.
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
@@ -60,7 +56,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Arquivos locais do app: cache primeiro, rede como fallback.
   event.respondWith(
     caches.match(request).then(cached => cached || fetch(request))
   );
