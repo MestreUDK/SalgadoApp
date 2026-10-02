@@ -43,7 +43,7 @@ Não há conta, login, servidor ou banco de dados.
 
 ## Arquivos
 
-Mantenha na raiz do repositório:
+Raiz do repositório:
 
 ```text
 /
@@ -55,12 +55,6 @@ Mantenha na raiz do repositório:
 ├── README.md
 └── LICENSE
 ```
-
-## Atualização
-
-Esta versão utiliza o cache `salgados-cache-v4`.
-
-O `icon.png` não está incluído neste patch. Mantenha o ícone que já existe no seu repositório.
 
 ## GitHub Pages
 
